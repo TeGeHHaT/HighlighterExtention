@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "Highlight Text",
+    "version": "1.0",
+    "description": "Подсветка выделенного фрагмента кода",
+    "permissions": [
+      "contextMenus",
+      "tabs",
+      "activeTab"
+    ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["contentScript.js"],
+        "run_at": "document_idle"
+      }
+    ],
+    "icons": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  }
