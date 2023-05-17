@@ -1,27 +1,30 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Highlight Text",
     "version": "1.0",
     "description": "Подсветка выделенного фрагмента кода",
-    "permissions": [
-      "contextMenus",
-      "tabs",
-      "activeTab"
-    ],
+    "permissions": ["contextMenus", "tabs"],
+    "host_permissions": ["<all_urls>"],
     "background": {
-      "scripts": ["background.js"],
-      "persistent": false
+        "service_worker": "background.js"
     },
-    "content_scripts": [
-      {
-        "matches": ["<all_urls>"],
-        "js": ["contentScript.js"],
-        "run_at": "document_idle"
-      }
-    ],
     "icons": {
       "16": "icon16.png",
       "48": "icon48.png",
       "128": "icon128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["contentScript.js"],
+            "run_at": "document_idle"
+        }
+    ],
+    "action": {
+        "default_icon": {
+            "16": "icon16.png",
+            "48": "icon48.png",
+            "128": "icon128.png"
+        }
     }
-  }
+}
